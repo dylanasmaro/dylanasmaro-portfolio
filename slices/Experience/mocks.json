@@ -1,0 +1,40 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "two",
+				"type": "Text"
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "stage",
+				"type": "Text"
+			},
+			"time_period": {
+				"__TYPE__": "FieldContent",
+				"value": "ants",
+				"type": "Text"
+			},
+			"institution": {
+				"__TYPE__": "FieldContent",
+				"value": "face",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Minim velit deserunt excepteur id labore dolor exercitation ullamco duis. Labore ipsum id nostrud culpa sit dolore laboris. Elit elit qui ullamco laborum culpa deserunt ea adipisicing irure minim voluptate Lorem aliquip id."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
