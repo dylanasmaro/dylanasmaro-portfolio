@@ -4,11 +4,13 @@ import clsx from "clsx";
 type BoundedProps = {
   as?: React.ElementType;
   className?: string;
-  children: ReactNode; // <-- Fix: use ReactNode, not never or ReactElement[]
-  [key: string]: any;
+  children: ReactNode;
 };
 
-const Bounded = forwardRef<HTMLElement, BoundedProps>(
+const Bounded = forwardRef<
+  Element,
+  BoundedProps & React.ComponentPropsWithoutRef<any>
+>(
   ({ as: Comp = "section", className, children, ...restProps }, ref) => {
     return (
       <Comp ref={ref} className={clsx("px-4 py-10 md:px-6 md:py-14 lg:py-16", className)} {...restProps}>
@@ -19,5 +21,7 @@ const Bounded = forwardRef<HTMLElement, BoundedProps>(
     );
   }
 );
+
+Bounded.displayName = "Bounded";
 
 export default Bounded;
