@@ -10,7 +10,7 @@ import { Content } from "@prismicio/client";
 gsap.registerPlugin(ScrollTrigger);
 
 type ContentListProps = {
-  items: Content.BlogPostDocument[] | Content.ProjectDocument[];
+  items: Content.BlogPostDocument[] | Content.ProjectsDocument[]; // Change to ProjectsDocument
   contentType: Content.BlogPostIndexSlice["primary"]["content_type"];
   fallbackItemImage: Content.BlogPostIndexSlice["primary"]["fallback_item_image"];
   viewMoreText: Content.BlogPostIndexSlice["primary"]["view_more_text"];

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { asImageSrc, isFilled, DateField } from "@prismicio/client";
+import { asImageSrc } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
@@ -16,7 +16,6 @@ export default async function Page({ params }: { params: Params }) {
   const page = await client.getByUID("blog_post", uid).catch(() => notFound());
 
   const date = page.data.date ? new Date(page.data.date) : null;
-
   const dateOptions: Intl.DateTimeFormatOptions = {
     weekday: "long",
     year: "numeric",
