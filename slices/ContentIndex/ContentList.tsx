@@ -5,15 +5,15 @@ import { asImageSrc, isFilled } from "@prismicio/client";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MdArrowOutward } from "react-icons/md";
-import { Content } from "@prismicio/client";
+// Import your generated types for blog_post and ProjectsDocument
+import type { BlogPostDocument, ProjectsDocument } from "../../prismicio-types";
 
 gsap.registerPlugin(ScrollTrigger);
-
 type ContentListProps = {
-  items: Content.BlogPostDocument[] | Content.ProjectsDocument[]; // Change to ProjectsDocument
-  contentType: Content.BlogPostIndexSlice["primary"]["content_type"];
-  fallbackItemImage: Content.BlogPostIndexSlice["primary"]["fallback_item_image"];
-  viewMoreText: Content.BlogPostIndexSlice["primary"]["view_more_text"];
+  items: BlogPostDocument[] | ProjectsDocument[];
+  contentType: string;
+  fallbackItemImage: BlogPostDocument["data"]["hover_image"];
+  viewMoreText: string;
 };
 
 export default function ContentList({
@@ -138,7 +138,7 @@ export default function ContentList({
   // Force background image update when currentItem changes
   useEffect(() => {
     if (currentItem !== null && revealRef.current && contentImages[currentItem]) {
-      revealRef.current.style.backgroundImage = `url(${contentImages[currentItem]})`;
+      (revealRef.current as HTMLElement).style.backgroundImage = `url(${contentImages[currentItem]})`;
     }
   }, [currentItem, contentImages]);
 
@@ -152,7 +152,11 @@ export default function ContentList({
         {items.map((post, index) => (
           <li
             key={index}
-            ref={(el) => (itemsRef.current[index] = el)}
+            ref={(el) => {
+              if (el) {
+                itemsRef.current[index] = el;
+              }
+            }}
             onMouseEnter={() => onMouseEnter(index)}
             className="list-item opacity-0"
           >

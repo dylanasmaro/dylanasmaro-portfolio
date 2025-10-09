@@ -10,8 +10,8 @@ import Heading from "@/app/components/Heading";
 
 type Params = { uid: string };
 
-export default async function Page({ params }: { params: Params }) {
-  const { uid } = params;
+export default async function Page({ params }: { params: Promise<Params> }) {
+  const { uid } = await params; // ← Added 'await' here
   const client = createClient();
   const page = await client.getByUID("projects", uid).catch(() => notFound());
 
@@ -46,9 +46,9 @@ export default async function Page({ params }: { params: Params }) {
 export async function generateMetadata({
   params,
 }: {
-  params: Params;
+  params: Promise<Params>; // ← Changed to Promise<Params>
 }): Promise<Metadata> {
-  const { uid } = params;
+  const { uid } = await params; // ← Added 'await' here
   const client = createClient();
   const page = await client.getByUID("projects", uid).catch(() => notFound());
 
