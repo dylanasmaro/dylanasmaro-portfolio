@@ -1,3 +1,4 @@
+import React from "react";
 import Bounded from "@/app/components/Bounded";
 import Heading from "@/app/components/Heading";
 import { Content } from "@prismicio/client";

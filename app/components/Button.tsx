@@ -21,7 +21,7 @@ export default function Button({ linkField, label, showIcon = false, className }
         >
             <span className="absolute inset-0 z-0 h-full translate-y-9 bg-yellow-300 transition-transform duration-300 ease-in-out group-hover:translate-y-0"></span>
             <span className="relative flex items-center gap-2">
-                {typeof label === "string" ? label : label?.toString?.() ?? ""}
+                {String(label ?? "")}
                 {showIcon && (
                     <span className="ml-2 inline-block transition-transform group-hover:translate-x-1">
                         →
