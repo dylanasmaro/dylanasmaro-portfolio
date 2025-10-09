@@ -9,17 +9,14 @@ import sm from "./slicemachine.config.json";
 /**
  * The project's Prismic repository name.
  */
-export const repositoryName =
-  process.env.NEXT_PUBLIC_PRISMIC_ENVIRONMENT || sm.repositoryName;
+export const repositoryName = "dylanasmaro-portfolio"; // Hardcoded for now
 
 /**
  * A list of Route Resolver objects that define how a document's `url` field is resolved.
  *
  * {@link https://prismic.io/docs/route-resolver#route-resolver}
  */
-// TODO: Update the routes array to match your project's route structure.
 const routes: Route[] = [
-  // Examples:
   { type: "home_page", path: "/" },
   { type: "page", path: "/:uid" },
 ];
