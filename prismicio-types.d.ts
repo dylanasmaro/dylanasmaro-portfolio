@@ -69,7 +69,10 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type BlogPostDocumentDataSlicesSlice = ImageBlockSlice | TextBlockSlice;
+type BlogPostDocumentDataSlicesSlice =
+  | BiographySlice
+  | ImageBlockSlice
+  | TextBlockSlice;
 
 /**
  * Content for Blog Post documents
